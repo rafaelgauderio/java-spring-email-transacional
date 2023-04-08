@@ -1,1 +1,1 @@
-## Ferrametna de envio email transacional
+## Ferramenta de envio email transacional

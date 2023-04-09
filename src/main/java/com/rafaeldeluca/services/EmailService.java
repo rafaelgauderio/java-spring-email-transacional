@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.rafaeldeluca.dto.EmailDTO;
+import com.rafaeldeluca.services.exceptions.EmailException;
 import com.sendgrid.Method;
 import com.sendgrid.Request;
 import com.sendgrid.Response;
@@ -48,12 +49,14 @@ public class EmailService {
 			// se o código http de resposta estiver entre 400 e 500 aconteceu algum erro
 			if (response.getStatusCode() >= 400 && response.getStatusCode() <= 500) {
 				LOG.error("Erro ao tentar enviar email: " + response.getBody());
+				throw new EmailException(response.getBody());
 			} else {
 				LOG.info("Email enviado com sucesso. Código http: " + response.getStatusCode());
+
 			}
 
 		} catch (IOException error) {
-			error.printStackTrace();
+			throw new EmailException(error.getMessage());
 		}
 
 	}

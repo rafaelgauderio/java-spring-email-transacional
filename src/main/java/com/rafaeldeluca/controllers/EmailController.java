@@ -14,6 +14,8 @@ import com.rafaeldeluca.services.EmailService;
 @RequestMapping(value = "/emails")
 public class EmailController {
 	
+	// Não injetar a implementação. injetar apenas a interface
+	// padrão de projeto strategy ou police
 	@Autowired
 	private EmailService service;
 	

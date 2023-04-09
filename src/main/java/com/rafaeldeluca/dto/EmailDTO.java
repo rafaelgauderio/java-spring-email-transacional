@@ -11,20 +11,22 @@ public class EmailDTO implements Serializable {
 	private String  replyTo;
 	private String to;
 	private String subject;
-	private String cotentType;
+	private String body;
+	private String contentType;
 	
 	public EmailDTO () {
 		
 	}
 
-	public EmailDTO(String fromEmail, String fromName, String replyTo, String to, String subject, String cotentType) {
+	public EmailDTO(String fromEmail, String fromName, String replyTo, String to, String subject, String body, String cotentType) {
 		super();
 		this.fromEmail = fromEmail;
 		this.fromName = fromName;
 		this.replyTo = replyTo;
 		this.to = to;
 		this.subject = subject;
-		this.cotentType = cotentType;
+		this.body = body;
+		this.contentType = contentType;
 	}
 
 	public String getFromEmail() {
@@ -66,17 +68,21 @@ public class EmailDTO implements Serializable {
 	public void setSubject(String subject) {
 		this.subject = subject;
 	}
+	
 
-	public String getCotentType() {
-		return cotentType;
+	public String getBody() {
+		return body;
 	}
 
-	public void setCotentType(String cotentType) {
-		this.cotentType = cotentType;
+	public void setBody(String body) {
+		this.body = body;
 	}
-	
-	
-	
-	
 
+	public String getContentType() {
+		return contentType;
+	}
+
+	public void setContentType(String contentType) {
+		this.contentType = contentType;
+	}
 }
